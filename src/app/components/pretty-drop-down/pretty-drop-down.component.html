@@ -1,0 +1,12 @@
+<div>
+  <label for="idMovie">Movies</label>
+  <select id="idMovie" [formControl]="myControl">
+
+    <option>Movie:</option>
+    <option *ngFor="let movie of moviesList | async" [value]="movie.id">
+      {{movie.title}}
+    </option>
+
+  </select>
+  <button *ngIf="myControl.value && myControl.value != 'Movie:'" (click)="onClearClick()">Clear</button>
+</div>
